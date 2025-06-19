@@ -42,7 +42,7 @@ class MusicRepoTest {
 
     @Test
     void findByArtistName_Found() {
-        Songs song=new Songs("yedane koyyake update" ,"Gautam menon", "SSOK","NOIdea",releaseDate);
+        Songs song=new Songs("yedane koyyake" ,"Gautam menon", "SSOK","NOIdea",releaseDate);
         musicrepo.save(song);
         List<Songs> playList = musicrepo.findByArtistName("Gautam menon");
         assertThat(playList.get(0).getSongTitle()).isEqualTo(song.getSongTitle());

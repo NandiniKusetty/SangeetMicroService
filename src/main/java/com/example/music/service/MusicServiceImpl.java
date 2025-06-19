@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.example.music.exceptions.SongNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.music.entity.Songs;
@@ -34,7 +35,8 @@ public class MusicServiceImpl implements MusicService{
     public Songs getBySongTitle(String title) {
 
         Optional<Songs> desiredSong= musicRepo.findById(title);
-        return desiredSong.orElseThrow(()-> new SongNotFoundException("song with title " + title + "not found"));
+
+            return desiredSong.orElseThrow(()-> new SongNotFoundException("song with title " + "'"+title +"'"+ " not found"));
     }
 
     @Override
