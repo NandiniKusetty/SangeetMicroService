@@ -52,4 +52,12 @@ public class MusicController {
 
         return  musicService.getByArtist(artist);
     }
+
+    @GetMapping("/recent/{artist}")
+    Songs  getRecentSongByArtist(@PathVariable String artist)
+    {
+        return  musicService.getRecentSongByArtist(artist);
+    }
+
+
 }

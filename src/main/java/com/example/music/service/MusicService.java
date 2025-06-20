@@ -16,5 +16,6 @@ public interface MusicService {
     Songs getBySongTitle(String title);
 
     List<Songs> getByArtist(String artist);
+    Songs getRecentSongByArtist(String Artist);
 
 }

@@ -1,5 +1,6 @@
 package com.example.music.service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,5 +44,14 @@ public class MusicServiceImpl implements MusicService{
     public List<Songs> getByArtist(String artist) {
 
         return musicRepo.findByArtistName(artist);
+    }
+
+    @Override
+    public Songs getRecentSongByArtist(String artist) {
+        List<Songs> AllSongsofArtist = getByArtist(artist);
+        Songs recentSong = AllSongsofArtist.stream()
+                                           .max(Comparator.comparing(Songs::getReleaseDate))
+                                           .get();
+        return recentSong;
     }
 }
