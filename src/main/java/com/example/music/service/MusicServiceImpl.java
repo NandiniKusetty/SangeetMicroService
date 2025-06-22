@@ -6,6 +6,9 @@ import java.util.Optional;
 
 import com.example.music.exceptions.SongNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -53,5 +56,11 @@ public class MusicServiceImpl implements MusicService{
                                            .max(Comparator.comparing(Songs::getReleaseDate))
                                            .get();
         return recentSong;
+    }
+
+    @Override
+    public Page<Songs> getSongsbyPage(Pageable pageable) {
+
+        return musicRepo.findAll(pageable);
     }
 }
