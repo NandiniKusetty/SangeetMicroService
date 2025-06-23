@@ -2,22 +2,19 @@ package com.example.music.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import com.example.music.exceptions.SongNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.example.music.entity.Songs;
 import com.example.music.repo.MusicRepo;
+
 
 @Service
 public class MusicServiceImpl implements MusicService{
 
     @Autowired
     MusicRepo musicRepo;
-
-
 
     @Override
     public List<Songs> getAllSongs() {
@@ -44,4 +41,5 @@ public class MusicServiceImpl implements MusicService{
 
         return musicRepo.findByArtistName(artist);
     }
+
 }
