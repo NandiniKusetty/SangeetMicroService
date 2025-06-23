@@ -18,6 +18,7 @@ import com.example.music.service.MusicService;
 @RestController
 @RequestMapping("/music")
 public class MusicController {
+
     @Autowired
     MusicService musicService;
     @Autowired
@@ -53,6 +54,8 @@ public class MusicController {
     {
         return  musicService.getByArtist(artist);
     }
+
+    //testing stash in feature2
 
     @GetMapping("/recent/{artist}")
     Songs  getRecentSongByArtist(@PathVariable String artist)
